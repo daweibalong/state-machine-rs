@@ -1,0 +1,4 @@
+[package]
+name = "state-machine-rs"
+version = "0.1.0"
+authors = ["daweibalong <daweibalong@gmail.com>"]
