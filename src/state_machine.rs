@@ -67,8 +67,8 @@ impl <S, C> StateMachine<S, C> where
 }
 
 impl <S, C> Drop for StateMachine<S, C> where
-S: Hash + Eq + PartialEq + Clone + IState, 
-C: Hash + Eq + PartialEq + Clone
+    S: Hash + Eq + PartialEq + Clone + IState, 
+    C: Hash + Eq + PartialEq + Clone
 {
     fn drop(&mut self) {
         self.state.exist();
