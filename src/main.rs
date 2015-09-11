@@ -30,8 +30,7 @@ impl state_machine::IState for State {
 }
 
 fn main() {
-    let mut mt: state_machine::StateMachine<State, Condition> 
-        = state_machine::StateMachine::new(State::STATE_OFF);
+    let mut mt = state_machine::StateMachine::new(State::STATE_OFF);
 
     mt.add_transition(State::STATE_OFF,  Condition::IN_UP_BUTTON,           State::STATE_UP);
     mt.add_transition(State::STATE_OFF,  Condition::IN_DOWN_BUTTON_NOT_UP,  State::STATE_DOWN);
