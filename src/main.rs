@@ -24,8 +24,8 @@ impl state_machine::IState for State {
        println!("enter {:?}", self); 
     }
 
-    fn exist(&self) {
-       println!("exist {:?}", self); 
+    fn exit(&self) {
+       println!("exit {:?}", self); 
     }
 }
 

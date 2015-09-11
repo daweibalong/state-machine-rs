@@ -3,7 +3,7 @@ use std::collections::HashMap;
 
 pub trait IState {
     fn enter(&self);
-    fn exist(&self);
+    fn exit(&self);
 }
 
 #[derive(Debug)]
@@ -49,7 +49,7 @@ impl <S, C> StateMachine<S, C> where
             Some(s) => {
                 match s.get(&condition) {
                     Some(d) => {
-                        self.state.exist();
+                        self.state.exit();
                         self.state = d.clone();
                         self.state.enter();
                         Ok(self.state.clone())
@@ -71,6 +71,6 @@ impl <S, C> Drop for StateMachine<S, C> where
     C: Hash + Eq + PartialEq + Clone
 {
     fn drop(&mut self) {
-        self.state.exist();
+        self.state.exit();
     }
 } 
