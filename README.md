@@ -27,7 +27,7 @@ enum State {
 
 * Implement the trait
 ```rust
-impl state_machine::IState for State {
+impl IState for State {
     fn enter(&self) {
        println!("enter {:?}", self); 
     }
@@ -40,7 +40,7 @@ impl state_machine::IState for State {
 
 *  Pass the defined State and Condition to StateMachine and init the transition table
 ```rust
-let mut mt: StateMachine<State, Condition> = StateMachine::new(State::STATE_OFF);
+let mut mt = StateMachine::new(State::STATE_OFF);
 
 mt.add_transition(State::STATE_OFF, Condition::IN_UP_BUTTON,     State::STATE_UP);
 mt.add_transition(State::STATE_UP,  Condition::IN_NOT_UP_BUTTON, State::STATE_DOWN_DISABLE);
